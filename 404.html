@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Prakash Rajendran</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400..600&amp;family=Google+Sans+Flex:opsz,wght@8..144,300..800&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>
+    (function () {
+      var theme = 'light';
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') theme = saved;
+        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+      } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <style>
+    .notfound {
+      min-height: 100vh;
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      gap: 28px;
+      max-width: 720px;
+      padding-block: 64px;
+    }
+    .notfound .term { width: 100%; }
+    .notfound .term__body { height: auto; }
+    .notfound h1 { font-size: clamp(40px, 7vw, 72px); line-height: 1; letter-spacing: -0.04em; font-weight: 640; }
+    .notfound p { font-size: 18px; color: var(--ink-2); max-width: 32em; }
+  </style>
+</head>
+<body>
+  <main class="container notfound">
+    <div class="term">
+      <div class="term__bar">
+        <span class="term__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="term__title">404.js</span>
+        <span class="term__badge">Error</span>
+      </div>
+      <div class="term__body">
+        <div class="term__out">
+          <div class="term__cmd">location.pathname</div>
+          <div class="term__res"><span class="t-str" id="path">"/"</span></div>
+          <div class="term__cmd">page</div>
+          <div class="term__res t-err">Uncaught ReferenceError: page is not defined</div>
+        </div>
+      </div>
+    </div>
+    <h1>Page not found.</h1>
+    <p>The page you were looking for doesn't exist or has moved. The homepage has everything about Prakash.</p>
+    <a class="btn btn--primary" id="home-link" href="/">Back to the homepage</a>
+  </main>
+  <script>
+    document.getElementById('path').textContent = JSON.stringify(window.location.pathname);
+  </script>
+</body>
+</html>
